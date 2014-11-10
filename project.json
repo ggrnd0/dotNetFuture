@@ -14,8 +14,8 @@
             }
         }
     },
-    "modules": [
+    "modules": {
         "K.Logging.Interfaces": { "path": "./" },
         "K.Logging.NLog": { "path": "./impl/" }
-    ]
+    }
 }
