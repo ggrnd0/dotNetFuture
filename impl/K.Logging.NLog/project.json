@@ -1,0 +1,12 @@
+{
+    "assembplyName": "K.Logging.NLog",
+    "version": "1.0.0-*",
+    "rootNamespace": "K.Logging.NLog",
+    "name": "K Logging NLog implementation",
+    "description": "K Logging NLog implementation",
+    "frameworks": ["aspnet50", "aspnetcore50"],
+    "dependencies": [
+        "K.Logging.Interfaces",
+        "NLog"
+    ]
+}

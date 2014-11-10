@@ -1,0 +1,17 @@
+{
+    "assembplyName": "K.Logging.Interfaces",
+    "version": "1.0.0-*",
+    "rootNamespace": "K.Logging",
+    "name": "K Logging Interfaces",
+    "description": "Logging interface definitions.",
+    "frameworks": ["aspnet50", "aspnetcore50"],
+    "dependencies": [
+        "Microsoft.Framework.Runtime.Interfaces",
+        "System.Runtime",
+        "System.Runtime.Extensions",
+        "System.Runtime.InteropServices",
+        "System.Globalization",
+        "System.Runtime",
+        "System.Runtime.InteropServices"
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "version": "1.0.0-*",
+    "name": "K Logging Infrastructure",
+    "description": "K Logging Infrastructure",
+    "frameworks": {
+        "net45": { },
+        "aspnet50, aspnetcore50": {
+            "dependencies": {
+                "K.Runtime.Interfaces": { "version": "1.0.0-*", "type": "build" },
+                "K.Runtime": "4.0.20-beta-*",
+                "K.Runtime.Extensions": "4.0.10-beta-*",
+                "K.Runtime.InteropServices": "4.0.20-beta-*",
+                "NLog": "3.1.0"
+            }
+        }
+    },
+    "modules": [
+        "K.Logging.Interfaces": { "path": "./" },
+        "K.Logging.NLog": { "path": "./impl/" }
+    ]
+}
