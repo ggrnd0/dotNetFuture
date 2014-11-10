@@ -1,0 +1,15 @@
+{
+    "platforms": {
+        "net50+linux": {
+            "inherit": {
+                "platform": "net50+win",
+                "mode": "override"
+            },
+            /* override only modules */
+            "modules": [
+                "K.Logging.Interfaces": { "path": "./" },
+                "K.Logging.NLog": { "path": "./impl/" }
+            ],
+        }
+    },
+}

@@ -1,0 +1,29 @@
+{
+    "platforms": {
+        "net45+winXp": {
+            "frameworks": {
+                "net45": {
+                    "System.Web": "4.0.0.0",
+                },
+                "aspnetcore50": {
+                    "K.Runtime.Interfaces": { "version": "1.0.0-*", "type": "build" },
+                    "K.Runtime": "4.0.20-beta*",
+                    "K.Runtime.Extensions": "4.0.10-beta*",
+                    "K.Runtime.InteropServices": "4.0.20-beta*"
+                }
+            },
+            "modules": [
+                "K.Logging.Interfaces": { "path": "./" },
+                "K.Logging.WinXp": { "path": "./winXp/" }
+            ],
+            "scripts": {
+                "postcompile": {/* after modules compiled */},
+                "postpackage": {
+                    /* after modules packaged */
+                    /* deploy packages to nuget or webserver */
+                    /* if project contains only T4 templates commit and push to repository */
+                },
+            }
+        },
+    },
+}

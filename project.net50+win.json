@@ -1,0 +1,42 @@
+{
+    "platforms": {
+        "net50+win": {
+            /* recursive inherits all properties except platform */
+            /* overrides simple values or recursive merge if values is objects */
+            "inherit": {
+                "platform": "net45+winXp",
+                "mode": "merge" /*default*/
+            },
+            "dependencies": {
+                "aspnetcore50": {
+                    /* just add new dependency */
+                    "NLog": "3.1.0",
+                    /* change version of dependency */
+                    /* `*` is match any symbols only in current version part [version, prerelease, build] */
+                    "K.Runtime.InteropServices": { "version": "4.*-rc*", "type": "build" }
+                },
+                "net45": {
+                    /* remove dependency */
+                    "System.Web": null,
+                }
+            },
+            "modules": [
+                /* add module */
+                "K.Logging.NLog": { "path": "./impl/" },
+                /* remove module */
+                "K.Logging.WinXp": null
+            ],
+        },
+        "net50+linux": {
+            "inherit": {
+                "platform": "net50+win",
+                "mode": "override"
+            },
+            /* override only modules */
+            "modules": [
+                "K.Logging.Interfaces": { "path": "./" },
+                "K.Logging.NLog": { "path": "./impl/" }
+            ],
+        }
+    },
+}
