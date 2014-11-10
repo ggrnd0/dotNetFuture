@@ -4,7 +4,6 @@
     "rootNamespace": "K.Logging",
     "name": "K Logging Interfaces",
     "description": "Logging interface definitions.",
-    "frameworks": ["aspnet50", "aspnetcore50"],
     "dependencies": [
         "Microsoft.Framework.Runtime.Interfaces",
         "System.Runtime",

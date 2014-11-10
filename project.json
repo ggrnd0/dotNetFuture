@@ -2,20 +2,64 @@
     "version": "1.0.0-*",
     "name": "K Logging Infrastructure",
     "description": "K Logging Infrastructure",
-    "frameworks": {
-        "net45": { },
-        "aspnet50, aspnetcore50": {
+    "targets": {
+        "winXp": {
+            "platform": "net45",
             "dependencies": {
+                "System.Web": "4.0.20-beta*",
                 "K.Runtime.Interfaces": { "version": "1.0.0-*", "type": "build" },
-                "K.Runtime": "4.0.20-beta-*",
-                "K.Runtime.Extensions": "4.0.10-beta-*",
-                "K.Runtime.InteropServices": "4.0.20-beta-*",
-                "NLog": "3.1.0"
+                "K.Runtime": "4.0.20-beta*",
+                "K.Runtime.Extensions": "4.0.10-beta*",
+                "K.Runtime.InteropServices": "4.0.20-beta*"
+            },
+            "modules": [
+                "K.Logging.Interfaces": { "path": "./" },
+                "K.Logging.WinXp": { "path": "./winXp/" }
+            ],
+            "assembling": {
+                "compile": {/* after modules compiled */},
+                "package": {
+                    /* after modules packaged */
+                    /* deploy packages to nuget or webserver */
+                    /* if project contains only T4 templates commit and push to repository */
+                },
             }
+        },
+        "aspnet50": {
+            "platform": "aspnet50",
+            /* recursive inherits all properties except platform */
+            /* overrides simple values or recursive merge if values is objects */
+            "inherit": {
+                "target": "winXp",
+                "mode": "merge" /*default*/
+            },
+            "dependencies": {
+                /* just add new dependency */
+                "NLog": "3.1.0",
+                /* remove dependency */
+                "System.Web": null,
+                /* change version of dependency */
+                /* `*` is match any symbols only in current version part [version, prerelease, build] */
+                "K.Runtime.InteropServices": { "version": "4.*-rc*", "type": "build" }
+            },
+            "modules": [
+                /* add module */
+                "K.Logging.NLog": { "path": "./impl/" },
+                /* remove module */
+                "K.Logging.WinXp": null
+            ],
+        },
+        "aspnetcore50": {
+            "platform": "aspnetcore50",
+            "inherit": {
+                "target": "aspnet50",
+                "mode": "override"
+            },
+            /* override only modules */
+            "modules": [
+                "K.Logging.Interfaces": { "path": "./" },
+                "K.Logging.NLog": { "path": "./impl/" }
+            ],
         }
     },
-    "modules": [
-        "K.Logging.Interfaces": { "path": "./" },
-        "K.Logging.NLog": { "path": "./impl/" }
-    ]
 }
